@@ -1,0 +1,22 @@
+# Application configurations
+spring:
+  application:
+    name: Greetings App
+
+# Server configuration
+server:
+  port: 8080
+
+# App metrics and management configuration
+management:
+  metrics:
+    export:
+      jmx:
+        enabled: true
+  endpoints:
+    enabled-by-default: true
+
+# This should be provided by the environment or looked up in a service registry
+services:
+  quote:
+    url: http://localhost:8181

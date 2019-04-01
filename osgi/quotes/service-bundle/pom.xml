@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>osgi-quotes-service-bundle</artifactId>
+    <packaging>bundle</packaging>
+    <name>OSGi :: Quotes :: Service Bundle</name>
+
+    <parent>
+        <groupId>com.connexta.multiplatform</groupId>
+        <artifactId>osgi-quotes</artifactId>
+        <version>0.1.0</version>
+        <relativePath>..</relativePath>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.connexta.multiplatform</groupId>
+            <artifactId>quotes-service</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.groupId}.${project.artifactId}
+                        </Bundle-SymbolicName>
+                        <Bundle-Name>${project.name}</Bundle-Name>
+                        <Import-Package>
+                            quote.service;version="[0.0,1)",
+                            com.google.common.*;version="[20.0,21)",
+                            org.slf4j;version="[1.7,2)"
+                        </Import-Package>
+                        <Embed-Transitive>true</Embed-Transitive>
+                        <Embed-Dependency>
+                            quotes-service;scope=compile|runtime;inline=true
+                        </Embed-Dependency>
+                    </instructions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

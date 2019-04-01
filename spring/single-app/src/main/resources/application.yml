@@ -1,0 +1,9 @@
+server:
+  port: 8080
+management:
+  metrics:
+    export:
+      jmx:
+        enabled: true
+  endpoints:
+    enabled-by-default: true

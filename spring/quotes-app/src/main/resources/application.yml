@@ -1,0 +1,17 @@
+# Application configurations
+spring:
+  application:
+    name: Quotes App
+
+# Server configuration
+server:
+  port: 8080
+
+# App metrics and management configuration
+management:
+  metrics:
+    export:
+      jmx:
+        enabled: true
+  endpoints:
+    enabled-by-default: true

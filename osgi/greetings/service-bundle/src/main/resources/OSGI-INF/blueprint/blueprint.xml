@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0
+                               http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+    <bean id="meterRegistry"
+          class="io.micrometer.core.instrument.composite.CompositeMeterRegistry"/>
+
+    <reference id="quoteService" interface="quote.service.QuoteService"/>
+
+    <bean id="greetingService" class="hello.service.impl.GreetingServiceImpl">
+        <argument ref="quoteService"/>
+        <argument ref="meterRegistry"/>
+    </bean>
+
+    <service ref="greetingService" interface="hello.service.GreetingService"/>
+</blueprint>

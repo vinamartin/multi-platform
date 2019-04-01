@@ -1,0 +1,11 @@
+<features name="${project.artifactId}-${project.version}"
+          xmlns="http://karaf.apache.org/xmlns/features/v1.3.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0">
+
+    <feature name="quotes-service-api" version="${project.version}"
+             description="Quotes service API">
+        <bundle>mvn:com.connexta.multiplatform/osgi-quotes-service-api-bundle/${project.version}
+        </bundle>
+    </feature>
+</features>

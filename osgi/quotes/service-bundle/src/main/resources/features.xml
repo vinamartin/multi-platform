@@ -1,0 +1,18 @@
+<features name="${project.artifactId}-${project.version}"
+          xmlns="http://karaf.apache.org/xmlns/features/v1.3.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0">
+
+    <repository>
+        mvn:com.connexta.multiplatform/osgi-quotes-service-api-bundle/${project.version}/xml/features
+    </repository>
+
+    <feature name="quotes-service" version="${project.version}"
+             description="Greetings service">
+        <feature>aries-blueprint</feature>
+        <bundle>mvn:com.google.guava/guava/20.0</bundle>
+        <feature>quotes-service-api</feature>
+        <bundle>mvn:com.connexta.multiplatform/osgi-quotes-service-bundle/${project.version}
+        </bundle>
+    </feature>
+</features>
