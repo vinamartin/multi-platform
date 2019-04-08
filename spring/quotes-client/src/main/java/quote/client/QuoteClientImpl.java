@@ -15,10 +15,19 @@ import com.google.common.collect.ImmutableMap;
 import quote.service.Quote;
 import quote.service.QuoteService;
 
+/**
+ * Client class that abstracts the Quote REST endpoint. Java clients can use this class instead of
+ * writing the HTTP REST client code themselves.
+ */
 public class QuoteClientImpl implements QuoteService {
 
   private final URL serviceUrl;
 
+  /**
+   * Constructs a new Quote REST client instance.
+   *
+   * @param serviceUrl URL of the quotes service
+   */
   public QuoteClientImpl(URL serviceUrl) {
     this.serviceUrl = serviceUrl;
   }
@@ -52,6 +61,14 @@ public class QuoteClientImpl implements QuoteService {
     return quoteResponse.getBody();
   }
 
+  /**
+   * Class that extends from the existing {@link Quote} interface defines how quotes will be
+   * serialized to JSON.
+   *
+   * <p>For more complex models, it is recommended to create a separate module that contains all the
+   * model classes and have the endpoint and client library depend on that same common model instead
+   * of defining it here and in the endpoint module.
+   */
   @Value.Immutable
   @JsonSerialize(as = ImmutableQuoteModel.class)
   @JsonDeserialize(as = ImmutableQuoteModel.class)

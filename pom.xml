@@ -20,6 +20,7 @@
 
         <!-- Dependency properties -->
         <cxf.version>3.2.8</cxf.version>
+        <immutables.version>2.7.1</immutables.version>
         <jackson.version>2.9.8</jackson.version>
         <micrometer.version>1.0.6</micrometer.version>
         <slf4j.version>1.7.25</slf4j.version>
@@ -32,14 +33,15 @@
             <version>${slf4j.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-ext</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>20.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.immutables</groupId>
+            <artifactId>value</artifactId>
+            <version>${immutables.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

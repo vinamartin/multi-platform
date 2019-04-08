@@ -3,9 +3,9 @@ package hello.service;
 /** Greeting message. */
 public interface Greeting {
 
-  /** @return unique ID associated with the greeting. */
+  /** @return unique ID associated with the greeting */
   long getId();
 
-  /** @return greeting message. */
+  /** @return greeting message */
   String getContent();
 }

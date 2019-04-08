@@ -2,6 +2,8 @@ FROM openjdk:8-jdk-alpine
 VOLUME /tmp
 ARG JAR_FILE
 COPY ${JAR_FILE} app.jar
+# Turns on JMX to expose metrics
+# TODO - Need to automatically set java.rmi.server.hostname
 ENTRYPOINT ["java",\
     "-Djava.security.egd=file:/dev/./urandom",\
     "-Dcom.sun.management.jmxremote=true",\

@@ -11,12 +11,6 @@
         mvn:com.connexta.multiplatform/osgi-quotes-service-bundle/${project.version}/xml/features
     </repository>
 
-    <!--
-    To run in Karaf:
-    > feature:repo-add mvn:com.connexta.multiplatform/osgi-greetings-endpoint-bundle/0.1.0/xml/features
-    > feature:install greetings-app
-    > feature:start greetings-app 0.1.0
-    -->
     <feature name="greetings-app" version="${project.version}"
              description="Greetings demo application">
         <feature>aries-blueprint</feature>
@@ -29,6 +23,5 @@
         <feature>greetings-service</feature>
         <bundle>mvn:com.connexta.multiplatform/osgi-greetings-endpoint-bundle/${project.version}
         </bundle>
-        <!--<bundle>mvn:com.google.errorprone/error_prone_annotation/2.0.13</bundle>-->
     </feature>
 </features>
